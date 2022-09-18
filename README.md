@@ -106,7 +106,7 @@ Creates a new club. Request must include a json file with the format below (note
 
 ```bash
 Method: POST
-URL: http://127.0.0.1:5000/api/clubs
+URL: http://localhost/api/clubs
 ```
 
 
@@ -137,7 +137,7 @@ Fetches all clubs whose name contains the `<search_text>`, case ignorant. Return
 
 ```bash
 Method: GET
-URL: http://127.0.0.1:5000/api/clubs/<search_text>
+URL: http://localhost/api/clubs/<search_text>
 ```
 
 
@@ -152,7 +152,7 @@ Modifies the club with the `<club_code>`. `<club_code>` must match exactly. If n
 
 ```bash
 Method: PUT
-URL: http://127.0.0.1:5000/api/clubs/<club_code>
+URL: http://localhost/api/clubs/<club_code>
 ```
 
 
@@ -186,7 +186,7 @@ Gets all tags. For each tag, gets the number and names of clubs that are associa
 
 ```bash
 Method: GET
-URL: http://127.0.0.1:5000/api/tags
+URL: http://localhost/api/tags
 ```
 
 
@@ -201,7 +201,7 @@ Gets the data for tag with name `<tag_name>`. `<tag_name>` must match exactly to
 
 ```bash
 Method: GET
-URL: http://127.0.0.1:5000/api/tags/<tag_name>
+URL: http://localhost/api/tags/<tag_name>
 ```
 
 
@@ -220,7 +220,7 @@ Gets the data for the user with the exact `<username>` provided, case ignorant. 
 
 ```bash
 Method: GET
-URL: http://127.0.0.1:5000/api/users/<username>
+URL: http://localhost/api/users/<username>
 ```
 
 
@@ -235,7 +235,7 @@ Creates a brand new user. Request must follow the json format below (note the re
 
 ```bash
 Method: POST
-URL: http://127.0.0.1:5000/auth/signup
+URL: http://localhost/auth/signup
 ```
 
 
@@ -264,7 +264,7 @@ Logs in the user with the provided username and password. Both the username and 
 
 ```bash
 Method: POST
-URL: http://127.0.0.1:5000/auth/login
+URL: http://localhost/auth/login
 ```
 
 
@@ -290,7 +290,7 @@ Logs out the current user. A user must already be logged in for this to be calle
 
 ```bash
 Method: POST
-URL: http://127.0.0.1:5000/auth/logout
+URL: http://localhost/auth/logout
 ```
 
 
@@ -305,7 +305,7 @@ Gets the data for the user currently logged in. A user must already be logged in
 
 ```bash
 Method: GET
-URL: http://127.0.0.1:5000/auth/profile
+URL: http://localhost/auth/profile
 ```
 
 
