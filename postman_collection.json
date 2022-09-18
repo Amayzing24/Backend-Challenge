@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "249a8229-8a73-40d3-85a6-5daa0fdb1584",
+		"name": "Backend Challenge",
+		"description": "Documentation for the backend challenge is below. It is divided by the type of data - Clubs, Tags, and Users.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19458884"
+	},
+	"item": [
+		{
+			"name": "Clubs",
+			"item": [
+				{
+					"name": "Get Clubs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clubs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clubs"
+							]
+						},
+						"description": "Gets a list of all clubs. For each club, the following data is included: club code, name, description, tags associated with the club, and number of users who have favorited the club."
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Club",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"code of club (required)\",\n    \"name\": \"name of club (required)\",\n    \"description\": \"club description\",\n    \"tags\": [\n        \"tag 1 of club\", \n        \"tag 2 of club\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clubs",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clubs"
+							]
+						},
+						"description": "Creates a new club. Request must include a json file with the format below (note the required fields)."
+					},
+					"response": []
+				},
+				{
+					"name": "Search for Club",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clubs/search_text",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clubs",
+								"search_text"
+							]
+						},
+						"description": "Fetches all clubs whose name contains the search text. Returns the same data for each club as the Get Clubs request."
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Club",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"new name of club\",\n    \"description\": \"new description of club\",\n    \"tags\": [\n        \"new tag 1 of club\",\n        \"new tag 2 of club\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/clubs/code_of_club",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"clubs",
+								"code_of_club"
+							]
+						},
+						"description": "Modifies the club with the `club_code`. `club_code` must match exactly. If no club with the provided code is found, an error is thrown. Request can contain one or more of the fields in the sample json below."
+					},
+					"response": []
+				}
+			],
+			"description": "You can get all clubs, search for a club, and modify a club."
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Get Tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/tags",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags"
+							]
+						},
+						"description": "Gets all tags. For each tag, gets the number and names of clubs that are associated with that tag."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Tag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/tags/tag_name",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags",
+								"tag_name"
+							]
+						},
+						"description": "Gets the data for tag with name `tag_name`. `tag_name` must match exactly to the desired tag, case ignorant. If a tag is found, then the number and names of clubs that are associated with that tag are returned."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/users/username",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"username"
+							]
+						},
+						"description": "Gets the data for the user with the exact `username` provided, case ignorant. The user's username, name, email, year, and favorited clubs are returned."
+					},
+					"response": []
+				},
+				{
+					"name": "Create New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"username (required)\",\n    \"name\": \"name of user (required)\",\n    \"password\": \"user's password (required)\",\n    \"year\": 1,\n    \"email\": \"user's email\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						},
+						"description": "Creates a brand new user. Request must follow the json format below (note the required fields)."
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": \"username (required and must match exactly)\",\n    \"password\": \"user password (required and must match exactly)\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Logs in the user with the provided username and password. Both the username and password must match exactly."
+					},
+					"response": []
+				},
+				{
+					"name": "Logout Current User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Logs out the current user. A user must already be logged in for this to be called."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth",
+								"profile"
+							]
+						},
+						"description": "Gets the data for the user currently logged in. A user must already be logged in for this to be called. Returns the user's username, name, email, year, and favorited clubs."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
