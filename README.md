@@ -69,7 +69,7 @@
     1. [Create New User](#2-create-new-user)
     1. [Login User](#3-login-user)
     1. [Logout Current User](#4-logout-current-user)
-    1. [Get Current User](#5-modify-current-user)
+    1. [Modify Current User](#5-modify-current-user)
     1. [Get Current User](#6-get-current-user)
 
 --------
