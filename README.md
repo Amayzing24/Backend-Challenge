@@ -95,7 +95,7 @@ URL: http://localhost/api/clubs
 ```
 
 ***Sample Output***
-```bash
+```js
 [
     {
         "code": "pppjo",
@@ -151,7 +151,8 @@ URL: http://localhost/api/clubs
 }
 ```
 
-
+***Output***
+`200 OK` if successful and `400 BAD REQUEST` if not
 
 ### 3. Search for Club
 
@@ -166,7 +167,30 @@ Method: GET
 URL: http://localhost/api/clubs/<search_text>
 ```
 
+***Sample Output***
 
+```js
+[
+    {
+        "code": "pmiotmlaac",
+        "description": "We do things related with Microservice, Internet of Things, Machine Learning, and Actionable Analytics!",
+        "favorited": 0,
+        "name": "Penn Microservice Internet of Things Machine Learning Actionable Analytics Club",
+        "tags": [
+            "Environmentally Friendly"
+        ]
+    },
+    {
+        "code": "ndmarmlbdc",
+        "description": "We do things related with Data Mining, Augmented Reality, Machine Learning, and Big Data!",
+        "favorited": 0,
+        "name": "Nursing Data Mining Augmented Reality Machine Learning Big Data Club",
+        "tags": [
+            "Potato"
+        ]
+    }
+]
+```
 
 ### 4. Modify Club
 
@@ -180,7 +204,8 @@ Modifies the club with the `<club_code>`. `<club_code>` must match exactly. If n
 Method: PUT
 URL: http://localhost/api/clubs/<club_code>
 ```
-
+***Output***
+Returns `200 OK` if successful, `405 METHOD NOT ALLOWED` if request tries to change club code or favorites, and `404 NOT FOUND` if `<club_code>` does not match any club in database.
 
 
 ***Body:***
@@ -215,7 +240,23 @@ Method: GET
 URL: http://localhost/api/tags
 ```
 
-
+***Sample Output***
+```js
+[
+    {
+        "count": 1,
+        "name": "Pre-Professional"
+    },
+    {
+        "count": 1,
+        "name": "Athletics"
+    },
+    {
+        "count": 4,
+        "name": "Undergraduate"
+    }
+]
+```
 
 ### 2. Get Specific Tag
 
