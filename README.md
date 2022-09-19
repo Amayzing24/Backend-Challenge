@@ -153,7 +153,7 @@ URL: http://localhost/api/clubs
 ```
 
 ***Output:***  
-`200 OK` if successful and `400 BAD REQUEST` if not
+`200 OK` if successful and `400 BAD REQUEST` if required fields are not provided.
 
 ### 3. Search for Club
 
@@ -388,7 +388,31 @@ URL: http://localhost/auth/logout
 ***Output:***  
 `200 OK` if successful or `401 UNAUTHORIZED` if no user is currently logged in.
 
-### 5. Get Current User
+
+### 5. Modify Current User
+Modifies the current user logged in. Must contain one or more of the fields listed in the json file below.
+
+***Endpoint:***
+```bash
+Method: PUT
+URL: http://localhost/auth/modify
+```
+
+***Body:***
+```js        
+{
+    "name": "new name of user",
+    "password": "new password",
+    "year": 1,
+    "email": "new email",
+    "club": "code of club to add to user's favorites"
+}
+```
+
+***Output:***  
+`200 OK` if successful and `401 UNAUTHORIZED` if no user is currently logged in.
+
+### 6. Get Current User
 
 
 Gets the data for the user currently logged in. A user must already be logged in for this to be called. Returns the user's username, name, email, year, and favorited clubs.
