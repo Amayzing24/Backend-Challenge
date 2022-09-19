@@ -94,7 +94,7 @@ Method: GET
 URL: http://localhost/api/clubs
 ```
 
-***Sample Output***
+***Sample Output:***
 ```js
 [
     {
@@ -118,6 +118,7 @@ URL: http://localhost/api/clubs
             "Literary"
         ]
     }
+    ...
 ]
 ```
 
@@ -151,7 +152,7 @@ URL: http://localhost/api/clubs
 }
 ```
 
-***Output***
+***Output:***  
 `200 OK` if successful and `400 BAD REQUEST` if not
 
 ### 3. Search for Club
@@ -167,9 +168,10 @@ Method: GET
 URL: http://localhost/api/clubs/<search_text>
 ```
 
-***Sample Output***
+***Sample Output:***
 
 ```js
+<search_text> = "Machine Learning"
 [
     {
         "code": "pmiotmlaac",
@@ -204,8 +206,6 @@ Modifies the club with the `<club_code>`. `<club_code>` must match exactly. If n
 Method: PUT
 URL: http://localhost/api/clubs/<club_code>
 ```
-***Output***
-Returns `200 OK` if successful, `405 METHOD NOT ALLOWED` if request tries to change club code or favorites, and `404 NOT FOUND` if `<club_code>` does not match any club in database.
 
 
 ***Body:***
@@ -220,7 +220,8 @@ Returns `200 OK` if successful, `405 METHOD NOT ALLOWED` if request tries to cha
     ]
 }
 ```
-
+***Output:***  
+Returns `200 OK` if successful, `405 METHOD NOT ALLOWED` if request tries to change club code or favorites, and `404 NOT FOUND` if `<club_code>` does not match any club in database.
 
 
 ## Tags
@@ -240,7 +241,7 @@ Method: GET
 URL: http://localhost/api/tags
 ```
 
-***Sample Output***
+***Sample Output:***
 ```js
 [
     {
@@ -255,6 +256,7 @@ URL: http://localhost/api/tags
         "count": 4,
         "name": "Undergraduate"
     }
+    ...
 ]
 ```
 
@@ -270,7 +272,20 @@ Gets the data for tag with name `<tag_name>`. `<tag_name>` must match exactly to
 Method: GET
 URL: http://localhost/api/tags/<tag_name>
 ```
-
+***Sample Output:***
+```js
+<tag_name> = "Undergraduate"
+{
+    "clubs": [
+        "Locust Labs",
+        "Penn Program for Potential Procrastinators",
+        "Penn Lorem Ipsum Club",
+        "Penn Pre-Professional Juggling Organization"
+    ],
+    "count": 4,
+    "name": "Undergraduate"
+}
+```
 
 
 ## Users
@@ -290,7 +305,17 @@ Method: GET
 URL: http://localhost/api/users/<username>
 ```
 
-
+***Sample Output:***
+```js
+<username> = "josh"
+{
+    "email": "josh123@gmail.com",
+    "favorites": [],
+    "name": "Josh",
+    "user": "josh",
+    "year": 3
+}
+```
 
 ### 2. Create New User
 
@@ -319,7 +344,8 @@ URL: http://localhost/auth/signup
 }
 ```
 
-
+***Output:***  
+`200 OK` if successful or `400 BAD REQUEST` if required fields are not provided or username already in use
 
 ### 3. Login User
 
@@ -334,8 +360,6 @@ Method: POST
 URL: http://localhost/auth/login
 ```
 
-
-
 ***Body:***
 
 ```js        
@@ -345,7 +369,8 @@ URL: http://localhost/auth/login
 }
 ```
 
-
+***Output:***  
+`200 OK` if successful or `400 BAD REQUEST` if required fields are not provided or username/password do not match.
 
 ### 4. Logout Current User
 
@@ -360,7 +385,8 @@ Method: POST
 URL: http://localhost/auth/logout
 ```
 
-
+***Output:***  
+`200 OK` if successful or `401 UNAUTHORIZED` if no user is currently logged in.
 
 ### 5. Get Current User
 
@@ -374,7 +400,16 @@ Gets the data for the user currently logged in. A user must already be logged in
 Method: GET
 URL: http://localhost/auth/profile
 ```
-
+***Sample Output:***  
+```js
+{
+    "email": "josh123@gmail.com",
+    "favorites": [],
+    "name": "Josh",
+    "user": "josh",
+    "year": 3
+}
+```
 
 
 ---
